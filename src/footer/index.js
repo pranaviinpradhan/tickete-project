@@ -51,7 +51,7 @@ export default function Footer() {
         </Box>
         <Accordion defaultIndex={[0]} allowMultiple allowToggle width={"600px"}>
           <AccordionItem
-            border={"1px solid gray"}
+            border={"1px solid #DBDBE4"}
             borderRadius={"10px"}
             my="20px"
             py="10px"
@@ -78,7 +78,7 @@ export default function Footer() {
             )}
           </AccordionItem>
           <AccordionItem
-            border={"1px solid gray"}
+            border={"1px solid #DBDBE4"}
             borderRadius={"10px"}
             my="20px"
             py="10px"
@@ -108,7 +108,7 @@ export default function Footer() {
             )}
           </AccordionItem>
           <AccordionItem
-            border={"1px solid gray"}
+            border={"1px solid #DBDBE4"}
             borderRadius={"10px"}
             my="20px"
             py="10px"
@@ -138,7 +138,7 @@ export default function Footer() {
             )}
           </AccordionItem>
           <AccordionItem
-            border={"1px solid gray"}
+            border={"1px solid #DBDBE4"}
             borderRadius={"10px"}
             my="20px"
             py="10px"
@@ -168,7 +168,7 @@ export default function Footer() {
             )}
           </AccordionItem>
           <AccordionItem
-            border={"1px solid gray"}
+            border={"1px solid #DBDBE4"}
             borderRadius={"10px"}
             my="20px"
             py="10px"
