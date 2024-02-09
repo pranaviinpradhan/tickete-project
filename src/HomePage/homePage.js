@@ -5,8 +5,11 @@ import ConfirmComp from "../confirm&pay";
 import Footer from "../footer";
 import logo from "../Frame 777.png";
 import SideCard from "../sideCard";
+import { useScreenDetector } from "../useScreenDetector";
 
 export default function HomePage() {
+    const { isMobile, isTablet, isDesktop } = useScreenDetector();
+
   return (
     <>
       <Navbar />
