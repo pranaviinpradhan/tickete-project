@@ -22,7 +22,7 @@ import gpay from "../gpay.png";
 
 export default function ConfirmComp() {
   return (
-    <div>
+    <Box ml="40px">
       <Text fontWeight={"500"} fontSize={"38px"} fontFamily={"serif"}>
         Confirm & pay
       </Text>
@@ -230,6 +230,6 @@ export default function ConfirmComp() {
           </Box>
         </Flex>
       </Container>
-    </div>
+    </Box>
   );
 }
