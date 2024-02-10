@@ -12,25 +12,35 @@ import {
 import React from "react";
 import icon from "../Group 99.png";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
+import { useScreenDetector } from "../useScreenDetector";
 
 export default function Footer() {
+  const { isMobile, isTablet, isDesktop } = useScreenDetector();
+
   return (
-    <Box ml="40px">
-      <Flex gap={"60px"}>
+    <Box ml={isDesktop ? "40px" : "0px"}>
+      <Flex
+        gap={isDesktop ? "60px" : "0px"}
+        direction={isDesktop ? "row" : "column-reverse"}
+      >
         <Box>
-          <Text fontWeight={"500"} fontSize={"20px"}>
-            Frequently asked questions
-          </Text>
-          <Text color={"#60646B"} mt="15px">
-            Here are some of our most asked questions.{" "}
-          </Text>
+          {isDesktop && (
+            <>
+              <Text fontWeight={"500"} fontSize={"20px"}>
+                Frequently asked questions
+              </Text>
+              <Text color={"#60646B"} mt="15px">
+                Here are some of our most asked questions.{" "}
+              </Text>
+            </>
+          )}
           <Box
             backgroundColor={"#F9F9FB"}
             borderRadius={"10px"}
             padding={"20px"}
             mt="30px"
           >
-            <Flex gap={"100px"}>
+            <Flex gap={isDesktop ? "100px" : "80px"}>
               <Box>
                 <Text fontWeight={"500"}>
                   Still need help?
@@ -49,7 +59,13 @@ export default function Footer() {
             </Flex>
           </Box>
         </Box>
-        <Accordion defaultIndex={[0]} allowMultiple allowToggle width={"600px"}>
+        <Accordion
+          defaultIndex={[0]}
+          allowMultiple
+          allowToggle
+          width={isDesktop ? "600px" : "390px"}
+          textAlign={"left"}
+        >
           <AccordionItem
             border={"1px solid #DBDBE4"}
             borderRadius={"10px"}

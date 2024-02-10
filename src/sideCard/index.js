@@ -7,10 +7,17 @@ import time from "../time.png";
 import guest from "../guest.png";
 import { AddIcon, InfoOutlineIcon, LockIcon } from "@chakra-ui/icons";
 import badge from "../Badge2.png";
+import { useScreenDetector } from "../useScreenDetector";
 
 export default function SideCard() {
+  const { isMobile, isTablet, isDesktop } = useScreenDetector();
+
   return (
-    <Box border={"1px solid #DBDBE4"} borderRadius={"25px"} height={"850px"}>
+    <Box
+      border={"1px solid #DBDBE4"}
+      borderRadius={"25px"}
+      height={isDesktop ? "850px" : "700px"}
+    >
       <img src={image} alt="imag" />
       <Box px="45px">
         <Box>
@@ -68,30 +75,34 @@ export default function SideCard() {
           </Text>
           <InfoOutlineIcon color={"#7F808A"} boxSize={3} />
         </Flex>
-        <Text fontSize={"11px"} mt="30px" color={"#60646B"}>
-          By clicking “confirm & pay”, you agree to{" "}
-          <span style={{ textDecoration: "underline", color: "#4667CF" }}>
-            Tickete’s general terms and conditions
-          </span>{" "}
-          and{" "}
-          <span style={{ textDecoration: "underline", color: "#4667CF" }}>
-            cancellation policy.
-          </span>
-        </Text>
-        <Center>
-          <Button
-            color={"white"}
-            backgroundColor={"black"}
-            borderRadius={"10px"}
-            mt="15px"
-            gap={"10px"}
-            size={"lg"}
-            px="50px"
-          >
-            <LockIcon />
-            Confirm & pay
-          </Button>
-        </Center>
+        {isDesktop && (
+          <Text fontSize={"11px"} mt="30px" color={"#60646B"}>
+            By clicking “confirm & pay”, you agree to{" "}
+            <span style={{ textDecoration: "underline", color: "#4667CF" }}>
+              Tickete’s general terms and conditions
+            </span>{" "}
+            and{" "}
+            <span style={{ textDecoration: "underline", color: "#4667CF" }}>
+              cancellation policy.
+            </span>
+          </Text>
+        )}
+        {isDesktop && (
+          <Center>
+            <Button
+              color={"white"}
+              backgroundColor={"black"}
+              borderRadius={"10px"}
+              mt="15px"
+              gap={"10px"}
+              size={"lg"}
+              px="50px"
+            >
+              <LockIcon />
+              Confirm & pay
+            </Button>
+          </Center>
+        )}
       </Box>
     </Box>
   );

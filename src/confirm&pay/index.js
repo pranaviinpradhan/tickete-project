@@ -19,21 +19,21 @@ import logo from "../Logos.png";
 import badge from "../Badge.png";
 import applePay from "../Input Add-on.png";
 import gpay from "../gpay.png";
+import { useScreenDetector } from "../useScreenDetector";
 
 export default function ConfirmComp() {
+  const { isMobile, isTablet, isDesktop } = useScreenDetector();
+
   return (
-    <Box ml="40px">
-      <Text fontWeight={"500"} fontSize={"38px"} fontFamily={"serif"}>
-        Confirm & pay
-      </Text>
+    <Box ml={isDesktop ? "40px" : "0px"}>
       <Container
         border={"1px solid #D8D9DF"}
         py={"15px"}
         px={"15px"}
-        width={"700px"}
+        width={isDesktop ? "700px" : "370px"}
         borderRadius={"10px"}
         backgroundColor={"#FCFCFD"}
-        mt="30px"
+        my="30px"
       >
         <Flex
           justifyContent={"space-between"}
@@ -49,6 +49,7 @@ export default function ConfirmComp() {
           <InfoIcon color={"#7F808A"} />
         </Flex>
       </Container>
+      <hr />
       <Container mt={"50px"}>
         <Text fontSize={"20px"} fontWeight={"500"}>
           Enter your details
@@ -60,14 +61,14 @@ export default function ConfirmComp() {
       </Container>
       <div>
         <Stack mt="40px" mb={"20px"}>
-          <Input placeholder="Full name " />
-          <Flex gap={"15px"}>
-            <Input placeholder="Country Code" />
-            <Input placeholder="Phone number" />
+          <Input placeholder="Full name * " />
+          <Flex gap={"15px"} direction={isDesktop ? "row" : "column"}>
+            <Input placeholder="Country Code *" />
+            <Input placeholder="Phone number *" />
           </Flex>
-          <Flex gap={"15px"}>
-            <Input placeholder="Email" />
-            <Input placeholder="Confirm email" />
+          <Flex gap={"15px"} direction={isDesktop ? "row" : "column"}>
+            <Input placeholder="Email *" />
+            <Input placeholder="Confirm email *" />
           </Flex>
         </Stack>
         <hr />
@@ -82,7 +83,7 @@ export default function ConfirmComp() {
       </Container>
       <div>
         <Stack mt="40px" mb={"20px"}>
-          <Flex gap={"15px"}>
+          <Flex gap={"15px"} direction={isDesktop ? "row" : "column"}>
             <Input placeholder="Input label " />
             <Select placeholder="Select">
               <option value="option1">Option 1</option>
@@ -90,7 +91,14 @@ export default function ConfirmComp() {
               <option value="option3">Option 3</option>
             </Select>
           </Flex>
-          <MultiSelect options={[]} placeholder="multiselect" />
+          <MultiSelect
+            options={[
+              { label: "Option 1", value: "option1" },
+              { label: "Option 2", value: "option2" },
+              { label: "Option 3", value: "option3" },
+            ]}
+            placeholder="multiselect"
+          />
         </Stack>
         <hr />
       </div>
@@ -114,17 +122,17 @@ export default function ConfirmComp() {
               <Text>Credit & debit card</Text>
             </Flex>
           </div>
-          <Radio size="md" />
+          <Radio size="md" defaultChecked />
         </Flex>
         <Box my={"15px"}>
           <img src={logo} alt="logo" />
         </Box>
         <Box>
-          <Flex gap={"10px"}>
+          <Flex gap={"10px"} direction={isDesktop ? "row" : "column"}>
             <Input placeholder="Name on card " />
             <Input placeholder="Card Number " />
           </Flex>
-          <Flex gap={"10px"} my="20px">
+          <Flex gap={"10px"} my="20px" direction={isDesktop ? "row" : "column"}>
             <Input placeholder="Expiry date " />
             <Input placeholder="<CVV/CVC> " />
           </Flex>
@@ -166,7 +174,7 @@ export default function ConfirmComp() {
         border={"1px solid #D8D9DF"}
         py={"15px"}
         px={"15px"}
-        width={"700px"}
+        width={isDesktop ? "700px" : "370px"}
         borderRadius={"10px"}
         backgroundColor={"#FCFCFD"}
         mt="30px"
@@ -187,7 +195,7 @@ export default function ConfirmComp() {
         border={"1px solid #D8D9DF"}
         py={"15px"}
         px={"15px"}
-        width={"700px"}
+        width={isDesktop ? "700px" : "370px"}
         borderRadius={"10px"}
         backgroundColor={"#FCFCFD"}
         my="20px"
@@ -214,7 +222,7 @@ export default function ConfirmComp() {
         border={"1px solid #D8D9DF"}
         py={"15px"}
         px={"15px"}
-        width={"700px"}
+        width={isDesktop ? "700px" : "370px"}
         borderRadius={"10px"}
         my="30px"
       >
